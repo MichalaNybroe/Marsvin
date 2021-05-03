@@ -32,7 +32,7 @@ public class FileHandler {
             Scanner fileReader = new Scanner(GUINNIEPIGFILE);
             while (fileReader.hasNext()) {
                 String name = fileReader.next();
-                String breed = fileReader.next();
+                Breed breed = Breed.valueOf(fileReader.next());
                 int foodInGrams = fileReader.nextInt();
 
                 guineaPigs.add(new GuineaPig(name, breed, foodInGrams));

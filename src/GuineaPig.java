@@ -1,9 +1,9 @@
 public class GuineaPig implements Comparable<GuineaPig> {
     private String name;
-    private String breed;
+    private Breed breed;
     private int foodInGrams;
 
-    public GuineaPig(String name, String breed, int foodInGrams) {
+    public GuineaPig(String name, Breed breed, int foodInGrams) {
         this.name = name;
         this.breed = breed;
         this.foodInGrams = foodInGrams;
@@ -23,7 +23,7 @@ public class GuineaPig implements Comparable<GuineaPig> {
         return name;
     }
 
-    public String getBreed() {
+    public Breed getBreed() {
         return breed;
     }
 

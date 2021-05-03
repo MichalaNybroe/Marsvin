@@ -16,6 +16,20 @@ public class UI {
         return anwser;
     }
 
+    public Breed getBreed() {
+        Breed keepRunning;
+        do {
+            keepRunning = null;
+            String breed = scanner.nextLine();
+            for (int i = 0; i < Breed.values().length; i++) {
+                if (Breed.values()[i].name().equalsIgnoreCase(breed)) {
+                    keepRunning = Breed.values()[i];
+                }
+            }
+        } while (keepRunning == null);
+        return keepRunning;
+    }
+
     public int getScanInt() {
         int anwser = scanner.nextInt();
         scanner.nextLine();
