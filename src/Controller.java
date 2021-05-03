@@ -8,14 +8,14 @@ public class Controller {
 
     public void run() {
         Menu menu = new Menu();
-        menu.showMenu();
-        //loadFile();
+        loadFile();
 
         int choice;
         boolean keepRunning;
 
         do {
             keepRunning = true;
+            menu.showMenu();
             choice = ui.getScanInt();
             switch (choice) {
                 case 1:
