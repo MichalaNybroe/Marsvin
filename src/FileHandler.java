@@ -6,27 +6,27 @@ public class FileHandler {
     private final File GUINNIEPIGFILE = new File("Guinniepig.txt");
     UI ui = new UI();
 
-    public void saveToFile(ArrayList<Guinniepig> guinniepigs) {
+    public void saveToFile(ArrayList<GuineaPig> guineaPigs) {
         try {
             FileWriter fileWriter = new FileWriter(GUINNIEPIGFILE);
-            for (int i = 0; i < guinniepigs.size(); i++) {
+            for (int i = 0; i < guineaPigs.size(); i++) {
                 fileWriter.write(
-                        guinniepigs.get(i).getName()
+                        guineaPigs.get(i).getName()
                                 + " "
-                                + guinniepigs.get(i).getBreed()
+                                + guineaPigs.get(i).getBreed()
                                 + " "
-                                + guinniepigs.get(i).getFoodInGrams()
+                                + guineaPigs.get(i).getFoodInGrams()
                                 + "\n"
                 );
             }
             fileWriter.close();
         } catch (IOException e) {
-            ui.getString("Wait, wait. You are missing a file!");
+            ui.printString("Wait, wait. You are missing a file!");
         }
     }
 
-    public ArrayList<Guinniepig> loadFile() {
-        ArrayList<Guinniepig> guinniepigs = new ArrayList<>();
+    public ArrayList<GuineaPig> loadFile() {
+        ArrayList<GuineaPig> guineaPigs = new ArrayList<>();
 
         try {
             Scanner fileReader = new Scanner(GUINNIEPIGFILE);
@@ -35,12 +35,12 @@ public class FileHandler {
                 String breed = fileReader.next();
                 int foodInGrams = fileReader.nextInt();
 
-                guinniepigs.add(new Guinniepig(name, breed, foodInGrams));
+                guineaPigs.add(new GuineaPig(name, breed, foodInGrams));
             }
             fileReader.close();
         } catch (FileNotFoundException e) {
-            ui.getString("Wow, wow. There is no file to load.");
+            ui.printString("Wow, wow. There is no file to load.");
         }
-        return guinniepigs;
+        return guineaPigs;
     }
 }
