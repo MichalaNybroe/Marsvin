@@ -1,3 +1,4 @@
+import java.text.CollationElementIterator;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -77,6 +78,7 @@ public class Controller {
     }
 
     public void sortGineaPig() {
+        //Collections.sort(guineaPigs, new GuineaPigComparator());
         Collections.sort(guineaPigs);
         ui.display(guineaPigs.toString());
         /*

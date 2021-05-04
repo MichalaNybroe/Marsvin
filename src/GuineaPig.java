@@ -11,7 +11,11 @@ public class GuineaPig implements Comparable<GuineaPig> {
 
     @Override
     public int compareTo(GuineaPig guineaPig) {
-        return this.name.compareTo(guineaPig.getName());
+        if (this.name.equals(guineaPig.getName())) {
+            return this.foodInGrams - guineaPig.getFoodInGrams();
+        } else {
+            return this.name.compareTo(guineaPig.getName());
+        }
     }
     /*
     @Overwrite
