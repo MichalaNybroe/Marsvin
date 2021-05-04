@@ -16,28 +16,28 @@ public class Controller {
         do {
             keepRunning = true;
             menu.showMenu();
-            choice = ui.getScanInt();
+            choice = ui.getInt();
             switch (choice) {
                 case 1:
-                    ui.printString("Adding Guinea Pig to list");
+                    ui.display("Adding Guinea Pig to list");
                     addGuineaPig();
                     break;
                 case 2:
-                    ui.printString("Removing Guinea Pig from list");
+                    ui.display("Removing Guinea Pig from list");
                     removeGuineaPig();
                     break;
                 case 3:
-                    ui.printString("Showing total grams of food needed for current Guinea Pigs.");
-                    ui.printInt(getTotalFood());
+                    ui.display("Showing total grams of food needed for current Guinea Pigs.");
+                    ui.display(getTotalFood());
                     break;
                 case 4:
-                    ui.printString("Showing Guinea Pigs");
+                    ui.display("Showing Guinea Pigs");
                     sortGineaPig();
                     break;
                 case 9:
-                    ui.printString("Saving to file....");
+                    ui.display("Saving to file....");
                     saveToFile();
-                    ui.printString("Quitting.. See you again!");
+                    ui.display("Quitting.. See you again!");
                     keepRunning = false;
             }
         } while (keepRunning);
@@ -45,27 +45,27 @@ public class Controller {
     }
 
     public void addGuineaPig() {
-        ui.printString("Please enter name: ");
-        String name = ui.getScanString();
-        ui.printString("Please enter breed: ");
-        Breed breed = ui.validateBreed();
-        ui.printString("Please enter grams of food: ");
-        int foodInGrams = ui.getScanInt();
+        ui.display("Please enter name: ");
+        String name = ui.getString();
+        ui.display("Please enter breed: ");
+        Breed breed = ui.getBreed();
+        ui.display("Please enter grams of food: ");
+        int foodInGrams = ui.getInt();
 
         guineaPigs.add(new GuineaPig(name, breed, foodInGrams));
     }
 
     public void removeGuineaPig() {
-        ui.printString("Which Guinea Pig do you wish to remove?");
-        ui.printString("Please enter their name here: ");
-        String name = ui.getScanString();
+        ui.display("Which Guinea Pig do you wish to remove?");
+        ui.display("Please enter their name here: ");
+        String name = ui.getString();
         for (int i = 0; i < guineaPigs.size(); i++) {
             if (guineaPigs.get(i).getName().equals(name)) {
                 guineaPigs.remove(guineaPigs.get(i));
                 return;
             }
         }
-        ui.printString("No Guinea Pig goes by this name.");
+        ui.display("No Guinea Pig goes by this name.");
     }
 
     public void saveToFile() {
@@ -78,7 +78,7 @@ public class Controller {
 
     public void sortGineaPig() {
         Collections.sort(guineaPigs);
-        ui.printString(guineaPigs.toString());
+        ui.display(guineaPigs.toString());
         /*
         Collections.sort(guineaPigs);
         ui.printString(guineaPigs.toString());

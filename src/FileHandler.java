@@ -21,7 +21,7 @@ public class FileHandler {
             }
             fileWriter.close();
         } catch (IOException e) {
-            ui.printString("Wait, wait. You are missing a file!");
+            ui.display("Wait, wait. You are missing a file!");
         }
     }
 
@@ -39,7 +39,7 @@ public class FileHandler {
             }
             fileReader.close();
         } catch (FileNotFoundException e) {
-            ui.printString("Wow, wow. There is no file to load.");
+            ui.display("Wow, wow. There is no file to load.");
         }
         return guineaPigs;
     }
