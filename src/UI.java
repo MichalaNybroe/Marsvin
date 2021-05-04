@@ -16,18 +16,19 @@ public class UI {
         return anwser;
     }
 
-    public Breed getBreed() {
-        Breed keepRunning;
+    public Breed validateBreed() {
+        // Fejlhåndtering af indtastning af Breed. Således det skal være af typen Breed.
+        Breed validBreed;
         do {
-            keepRunning = null;
+            validBreed = null;
             String breed = scanner.nextLine();
             for (int i = 0; i < Breed.values().length; i++) {
                 if (Breed.values()[i].name().equalsIgnoreCase(breed)) {
-                    keepRunning = Breed.values()[i];
+                    validBreed = Breed.values()[i];
                 }
             }
-        } while (keepRunning == null);
-        return keepRunning;
+        } while (validBreed == null);
+        return validBreed;
     }
 
     public int getScanInt() {

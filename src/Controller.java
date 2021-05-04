@@ -48,7 +48,7 @@ public class Controller {
         ui.printString("Please enter name: ");
         String name = ui.getScanString();
         ui.printString("Please enter breed: ");
-        Breed breed = ui.getBreed();
+        Breed breed = ui.validateBreed();
         ui.printString("Please enter grams of food: ");
         int foodInGrams = ui.getScanInt();
 
